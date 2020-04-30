@@ -3,39 +3,40 @@
 <html lang="pt-BR">
 
 <head>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> 
    <title>Django</title>
 </head>
 
 <body>
-   <a href="/">Voltar para Home</a>
-   <br><br>
-   <hr />
+  <nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand"  href="/">Voltar para Home</a>
+  </nav>
+  <div class="container">
    <table>
          <h1>Cadastro do produto</h1>
          {% if produto %}
          {% for i in produto %}
          <form action="/novo_produto/" method="post">
           {% csrf_token %}
-            <input type="number" name="id" value="{{ i.id }}" hidden>
-            <input type="text" name="nome" value="{{ i.nome }}" required>
-            <input type="text" name="descricao" value="{{ i.descricao }}">
-            <input type="number" name="preco" value="{{ i.preco }}">
-            <input type="submit" name="enviar" value="Salvar">
+            <input type="number" class="form-control" name="id" value="{{ i.id }}" hidden>
+            <input type="text" class="form-control" name="nome" value="{{ i.nome }}" required>
+            <input type="text" class="form-control" name="descricao" value="{{ i.descricao }}">
+            <input type="number" class="form-control" name="preco" value="{{ i.preco }}">
+            <input type="submit" class="form-control" name="enviar" value="Salvar">
          </form>
          {% endfor %}
          {% else %}
          <form action="/novo_produto/" method="post">{% csrf_token %}
-            <input type="number" name="id" value="-1" hidden>
-            <input type="text" name="nome" placeholder="Nome" required>
-            <input type="text" name="descricao" placeholder="descricao">
-            <input type="number" name="preco" placeholder="Preço">
-            <input type="submit" name="enviar" value="Salvar">
+            <input type="number" class="form-control" name="id" value="-1" hidden>
+            <input type="text" class="form-control" name="nome" placeholder="Nome" required>
+            <input type="text" class="form-control" name="descricao" placeholder="descricao">
+            <input type="number" class="form-control" name="preco" placeholder="Preço">
+            <input type="submit" class="btn btn-primary mb-2" name="enviar" value="Salvar">
          </form>
          {% endif %}
    </table>
-
-   <br>
-   <hr /><br><br>
+   </div>
+   <div class="container">
    <ul>
          <p>Produtos na tabela</p>
          {% for i in list %}
@@ -51,6 +52,7 @@
 
       </table>
    </ul>
+  </div>
 </body>
 
 </html>
