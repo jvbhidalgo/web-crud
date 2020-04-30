@@ -14,8 +14,8 @@
   <div class="container">
    <table>
          <h1>Cadastro do produto</h1>
-         {% if produto %}
-         {% for i in produto %}
+         {% if prod %}
+         {% for i in prod %}
          <form action="/novo_produto/" method="post">
           {% csrf_token %}
             <input type="number" class="form-control" name="id" value="{{ i.id }}" hidden>
@@ -45,6 +45,7 @@
             <td><b>Descricao:</b> {{ i.descricao }}</td>
             <td><b>Preço:</b> {{ i.preco }}</td>
             <td><a href="/deletar_produto/?id={{ i.id }}">Deletar</a></td>
+            <td><a href="/atualizar_produto/?id={{ i.id }}">Atualizar</a></td>
             <br>
          </tr>
          {% endfor %}

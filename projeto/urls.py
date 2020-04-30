@@ -23,5 +23,6 @@ urlpatterns = [
     url(r'^lista_produto/', views.lista_produto, name='lista_produto'),
     url(r'^novo_produto/', views.novo_produto, name='novo_produto'),
     url(r'^deletar_produto/', views.deletar_produto, name='deletar_produto'),
+    url(r'^atualizar_produto/', views.atualizar_produto, name='atualizar_produto'),
     
 ]
