@@ -72,27 +72,5 @@ def deletar_produto(request):
         data['error'].append("Erro ! ")
         return render(request, 'produto.html', data)
         
-    
 
-def atualizar_produto(request):
-    data = {}
-    data['list'] = []
-    data['error'] = []
-    data['prod'] = []
-    if request.method == 'GET':
-        id = request.GET.get('id')
-        try:
-            data['prod'].append(Produto.objects.get(id=id))
-        except:
-            data['error'].append("Erro ao carregar cliestes! ")
-            return render(request, 'produto.html', data)
-        try:
-            data['list'] = Produto.objects.all()
-        except:
-            data['error'].append("Erro ao carregar Produto! ")
-            return render(request, 'produto.html', data)
-        return render(request, 'produto.html', data)
-    else:
-        data['error'].append("Erro ! ")
-        return render(request, 'produto.html', data)
         

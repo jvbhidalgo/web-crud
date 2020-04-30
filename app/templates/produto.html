@@ -27,7 +27,7 @@
          {% endfor %}
          {% else %}
          <form action="/novo_produto/" method="post">{% csrf_token %}
-            <input type="number" class="form-control" name="id" value="-1" hidden>
+            <input type="number" class="form-control mb-2" name="id" value="-1" hidden>
             <input type="text" class="form-control" name="nome" placeholder="Nome" required>
             <input type="text" class="form-control" name="descricao" placeholder="descricao">
             <input type="number" class="form-control" name="preco" placeholder="Preço">
@@ -45,7 +45,6 @@
             <td><b>Descricao:</b> {{ i.descricao }}</td>
             <td><b>Preço:</b> {{ i.preco }}</td>
             <td><a href="/deletar_produto/?id={{ i.id }}">Deletar</a></td>
-            <td><a href="/atualizar_produto/?id={{ i.id }}">Alterar</a></td>
             <br>
          </tr>
          {% endfor %}
